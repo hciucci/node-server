@@ -7,10 +7,6 @@ const musicData = require('./music-data.json');
 
 app.use('/images', express.static('images'));
 
-app.get('/api/music', (req, res) => {
-  res.json(musicData.music);
-});
-
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
