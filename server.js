@@ -1,10 +1,9 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const PORT = 3000;
 
 const musicData = require('./music-data.json');
-
-app.use(express.static('public'));
 
 app.use('/images', express.static('images'));
 
@@ -13,7 +12,7 @@ app.get('/api/music', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.listen(PORT, () => {
